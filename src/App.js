@@ -11,7 +11,7 @@ function App() {
   const [location, setLocation] = useState("");
   const [history, setHistory] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [facingMode, setFacingMode] = useState("environment");
+  const [facingMode] = useState("environment");
   
   const webcamRef = useRef(null);
   const fileInputRef = useRef(null);
@@ -139,7 +139,7 @@ function App() {
                     </div>
                     <p className="text-[#4A5568] font-medium leading-[1.8] text-base border-l-4 border-emerald-100 pl-10">
                       {typeof (prediction[1] || prediction[0]) === 'string' 
-                        ? (prediction[1] || prediction[0]).replace(/###|#|\*\*|\-\-\-/g, '') 
+                        ? (prediction[1] || prediction[0]).replace(/###|#|\*\*|---/g, '') 
                         : "Detail diagnosa teknis tersedia pada lembar riwayat."}
                     </p>
                     <button onClick={saveToHistory} className="mt-12 w-full bg-emerald-600 text-white py-5 rounded-2xl font-black text-xs uppercase tracking-[0.2em] shadow-lg shadow-emerald-100 hover:bg-emerald-800 transition-all">🚀 Simpan Hasil Laporan</button>
